@@ -2,11 +2,11 @@
 const express = require("express"); //for creating server
 const mongoose = require("mongoose"); //for accessing mongodb atlas and creating models
 const body_parser = require("body-parser"); //for reading req.body and the jsons and urls encoded in request's body
-const notes = require("./models/notes");
+const notes = require("./src/models/notes");
 
 // INITIALIZATIONS
 const app = express();
-const Note = require("./models/notes");
+const Note = require("./src/models/notes");
 
 //MIDDLEWARES
 app.use(body_parser.json());
@@ -22,7 +22,7 @@ mongoose
     () => {
       //ROUTES
       app.get("/", (req, res) => res.json({ hey: "you" }));
-     const notesRouter=require('./routes/notes');
+     const notesRouter=require('./src/routes/notes');
      app.use("/notes",notesRouter);//now all the requests that come for /notes will get routed through notesrouter and 
      //will go to that file
 
