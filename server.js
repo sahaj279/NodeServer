@@ -3,6 +3,7 @@ const express = require("express"); //for creating server
 const mongoose = require("mongoose"); //for accessing mongodb atlas and creating models
 const body_parser = require("body-parser"); //for reading req.body and the jsons and urls encoded in request's body
 const notes = require("./src/models/notes");
+const cors=require('cors');
 
 // INITIALIZATIONS
 const app = express();
@@ -12,6 +13,7 @@ const Note = require("./src/models/notes");
 app.use(body_parser.json());
 app.use(body_parser.urlencoded({ extended: false })); //if extended is true, Nested objects would be allowed and read
 //nested objects mean {user:{}} //object inside object
+app.use(cors);
 
 mongoose
   .connect(
