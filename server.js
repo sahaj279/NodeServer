@@ -13,7 +13,7 @@ const Note = require("./src/models/notes");
 app.use(body_parser.json());
 app.use(body_parser.urlencoded({ extended: false })); //if extended is true, Nested objects would be allowed and read
 //nested objects mean {user:{}} //object inside object
-app.use(cors);
+app.use(cors());
 
 mongoose
   .connect(
